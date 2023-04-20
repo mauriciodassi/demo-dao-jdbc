@@ -1,6 +1,9 @@
 package application;
 
+import java.util.Date;
 import java.util.List;
+
+import com.mysql.cj.x.protobuf.MysqlxCrud.Insert;
 
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
@@ -32,6 +35,15 @@ public class Program {
 		for (Seller objSeller : list) {		
 			System.out.println(objSeller);
 		}
+		
+		System.out.println("\n=== TEST4: seller Insert ===");
+		
+		Seller newseller = new Seller (null,"Greg", "greg@gmail.com", new Date(), 4000.0, department);
+		
+		sellerDao.insert(newseller);
+		
+		System.out.println("Inserted! New Id =" + newseller.getId());
+
 		
 		
 	}
