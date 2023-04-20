@@ -7,6 +7,7 @@ import com.mysql.cj.x.protobuf.MysqlxCrud.Insert;
 
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
+import model.dao.impl.SellerDaoJDBC;
 import model.entities.Department;
 import model.entities.Seller;
 
@@ -44,7 +45,13 @@ public class Program {
 		
 		System.out.println("Inserted! New Id =" + newseller.getId());
 
+		System.out.println("\n=== TEST5: seller Update ===");
+
+		seller = sellerDao.findById(1);
+		seller.setName("Marta");
 		
+		sellerDao.update(seller);
+		System.out.println("Update completed");
 		
 	}
 
